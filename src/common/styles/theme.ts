@@ -3,6 +3,9 @@ const theme = {
         primary: '#F26464',
         secondary: '#7433FF',
 
+        white: 'rgb(255, 255, 255)',
+        offwhite: 'rgba(255, 255, 255, 0.5)',
+
         success: '#4BDE97',
         danger: '#F26464',
         warning: '#FFB648',
@@ -18,7 +21,7 @@ const theme = {
 
         transparent: 'rgba(0, 0, 0, 0)',
         modal_transparent: 'rgba(0, 0, 0, 0.6)',
-        border: '#70708A',
+        border: 'rgba(196, 196, 196, 0.2)',
 
         gray_50: 'rgb(249, 250, 251)',
         gray_100: 'rgb(243, 244, 251)',

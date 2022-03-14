@@ -1,9 +1,20 @@
-import { Container } from './styles'
+import { Navlist } from '@components/application/dashboard/navlist'
+import Image from 'next/image'
+import flixLogo from 'src/../public/images/flix-logo.svg'
+import { Container, Header, HeaderTitle, Subtitle, Title } from './styles'
 
 export const Aside = () => {
     return (
         <Container>
-            <h1>Hello World</h1>
+            <Header>
+                <Image src={flixLogo} alt="Logo" width={60} height={38} />
+                <HeaderTitle>
+                    <Title>Flix Telecom</Title>
+                    <Subtitle>Dashboard</Subtitle>
+                </HeaderTitle>
+            </Header>
+
+            <Navlist />
         </Container>
     )
 }
