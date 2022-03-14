@@ -1,13 +1,24 @@
 const theme = {
     colors: {
+        primary: '#F26464',
+        secondary: '#7433FF',
+
+        success: '#4BDE97',
+        danger: '#F26464',
+        warning: '#FFB648',
+        info: '#5887FF',
+
+        primary_background: 'rgba(242, 100, 100, 0.1)',
+        secondary_background: 'rgba(116, 51, 255, 0.1)',
+
+        success_background: 'rgba(75, 222, 151, 0.1)',
+        danger_background: 'rgba(242, 100, 100, 0.1)',
+        warning_background: 'rgba(255, 182, 72, 0.1)',
+        info_background: 'rgba(88, 135, 255, 0.1)',
+
         transparent: 'rgba(0, 0, 0, 0)',
         modal_transparent: 'rgba(0, 0, 0, 0.6)',
-        background: '#F9FAFB',
-        white: '#FFFFFF',
-        border: 'rgb(156, 163, 175)',
-
-        primary: '#E52625',
-        rippleEffectPrimary: '#EF4443',
+        border: '#70708A',
 
         gray_50: 'rgb(249, 250, 251)',
         gray_100: 'rgb(243, 244, 251)',
@@ -19,6 +30,12 @@ const theme = {
         gray_700: 'rgb(55, 65, 81)',
         gray_800: 'rgb(31, 41, 55)',
         gray_900: 'rgb(17, 24, 39)',
+
+        background_900: '#10101C',
+        background_800: '#161624',
+        background_700: '#222235',
+        background_600: '#2D2D3A',
+        background_500: '#29293E',
     },
     fontColor: {
         text_gray_50: 'rgb(249, 250, 251)',
@@ -32,7 +49,8 @@ const theme = {
         text_gray_800: 'rgb(31, 41, 55)',
         text_gray_900: 'rgb(17, 24, 39)',
 
-        title: 'rgb(31, 41, 55)',
+        title: '#D6D7E3',
+        label: '#B9B9B9',
     },
     fontSize: {
         text_xs: '0.75rem',
