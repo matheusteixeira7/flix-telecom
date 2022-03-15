@@ -14,4 +14,6 @@ export const Container = styled.div`
         'secondary-card secondary-card secondary-card aside-card-2';
 
     height: 100%;
+
+    max-width: ${({ theme }) => theme.breakpoints.laptopL};
 `
