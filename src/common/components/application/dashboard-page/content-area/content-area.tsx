@@ -1,4 +1,4 @@
-import { Cards } from '@components/application/dashboard/cards'
+import { Cards } from '@components/application/dashboard-page/cards'
 import { Container } from './styles'
 
 export const ContentArea = () => {
