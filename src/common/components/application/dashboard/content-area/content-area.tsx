@@ -1,9 +1,10 @@
+import { Cards } from '@components/application/dashboard/cards'
 import { Container } from './styles'
 
 export const ContentArea = () => {
     return (
         <Container>
-            <h1>Hello World</h1>
+            <Cards />
         </Container>
     )
 }

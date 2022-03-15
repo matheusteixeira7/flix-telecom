@@ -1,4 +1,4 @@
-import { Avatar } from '@components/application/dashboard/avatar'
+import { Avatar } from '@components/application/avatar'
 import { Container, JobTitle, Name, User } from './styles'
 
 export const UserCard = () => {
