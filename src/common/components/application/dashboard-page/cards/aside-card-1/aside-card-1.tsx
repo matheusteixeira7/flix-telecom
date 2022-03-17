@@ -85,7 +85,7 @@ export const AsideCard1 = () => {
             </Header>
 
             <Chart>
-                <ResponsiveContainer width="100%" height="70%">
+                <ResponsiveContainer width="100%" height="100%">
                     <AreaChart
                         data={data}
                         margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
@@ -104,7 +104,7 @@ export const AsideCard1 = () => {
                                     stopOpacity={0.4}
                                 />
                                 <stop
-                                    offset="95%"
+                                    offset="99%"
                                     stopColor="#ffffff"
                                     stopOpacity={0}
                                 />

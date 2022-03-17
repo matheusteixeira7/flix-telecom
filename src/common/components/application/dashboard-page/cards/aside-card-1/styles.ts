@@ -18,6 +18,9 @@ export const Container = styled.div`
     border-radius: 10px;
 `
 export const Chart = styled.div`
+    display: flex;
+    align-items: flex-end;
+
     width: 100%;
     height: 100%;
 `
