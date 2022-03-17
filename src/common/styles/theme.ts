@@ -11,6 +11,8 @@ const theme = {
         warning: '#FFB648',
         info: '#5887FF',
 
+        blue: '#2F49D1',
+
         primary_background: 'rgba(242, 100, 100, 0.1)',
         secondary_background: 'rgba(116, 51, 255, 0.1)',
 

@@ -26,7 +26,7 @@ export const TopCard4 = () => {
                     <Percentage>
                         <PercentageWrapper>
                             <AiOutlineRise />
-                            <PercentageText>+0,44%</PercentageText>
+                            <PercentageText>+1%</PercentageText>
                         </PercentageWrapper>
                         <Date>último mês</Date>
                     </Percentage>
