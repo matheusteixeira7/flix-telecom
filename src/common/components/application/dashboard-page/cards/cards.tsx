@@ -7,20 +7,22 @@ import { TopCard1 } from '@components/application/dashboard-page/cards/top-card-
 import { TopCard2 } from '@components/application/dashboard-page/cards/top-card-2'
 import { TopCard3 } from '@components/application/dashboard-page/cards/top-card-3'
 import { TopCard4 } from '@components/application/dashboard-page/cards/top-card-4'
-import { Container } from './styles'
+import { Container, Wrapper } from './styles'
 
 export const Cards = () => {
     return (
         <Container>
-            <Title />
-            <MainCard />
-            <SecondaryCard />
-            <AsideCard1 />
-            <AsideCard2 />
-            <TopCard1 />
-            <TopCard2 />
-            <TopCard3 />
-            <TopCard4 />
+            <Wrapper>
+                <Title />
+                <MainCard />
+                <SecondaryCard />
+                <AsideCard1 />
+                <AsideCard2 />
+                <TopCard1 />
+                <TopCard2 />
+                <TopCard3 />
+                <TopCard4 />
+            </Wrapper>
         </Container>
     )
 }

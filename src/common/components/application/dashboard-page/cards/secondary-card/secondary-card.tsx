@@ -28,7 +28,7 @@ const data = [
     { name: 'Jul', Internet: 231, Móvel: 434, TV: 123 },
     { name: 'Ago', Internet: 321, Móvel: 423, TV: 111 },
     { name: 'Set', Internet: 111, Móvel: 523, TV: 98 },
-    { name: 'Out', Internet: 32, Móvel: 623, TV: 32 },
+    { name: 'Out', Internet: 723, Móvel: 623, TV: 32 },
     { name: 'Nov', Internet: 122, Móvel: 753, TV: 123 },
     { name: 'Dez', Internet: 88, Móvel: 323, TV: 323 },
 ]
@@ -42,7 +42,7 @@ export const SecondaryCard = () => {
                 <Plans>
                     <Plan>
                         <PlanHeader>
-                            <Dot color="green" />
+                            <Dot color="yellow" />
                             <PlanName>Internet</PlanName>
                         </PlanHeader>
 
@@ -60,7 +60,7 @@ export const SecondaryCard = () => {
 
                     <Plan>
                         <PlanHeader>
-                            <Dot color="yellow" />
+                            <Dot color="green" />
                             <PlanName>TV</PlanName>
                         </PlanHeader>
 
@@ -70,7 +70,7 @@ export const SecondaryCard = () => {
             </Header>
 
             <Chart>
-                <ResponsiveContainer width="100%" height={150}>
+                <ResponsiveContainer width="100%" height={120}>
                     <LineChart
                         width={550}
                         height={250}
@@ -80,7 +80,7 @@ export const SecondaryCard = () => {
                         <Line
                             type="monotone"
                             dataKey="Internet"
-                            stroke="#4BDE97"
+                            stroke="#FFB648"
                             dot={false}
                         />
                         <Line
@@ -92,7 +92,7 @@ export const SecondaryCard = () => {
                         <Line
                             type="monotone"
                             dataKey="TV"
-                            stroke="#FFB648"
+                            stroke="#4BDE97"
                             dot={false}
                         />
                         <CartesianGrid

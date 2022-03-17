@@ -61,10 +61,10 @@ export const MainCard = () => {
             </Header>
 
             <Chart>
-                <ResponsiveContainer width="100%" height={270}>
+                <ResponsiveContainer width="100%" height={250}>
                     <LineChart
                         width={550}
-                        height={250}
+                        height={120}
                         data={data}
                         margin={{ top: 5, right: 30, left: 20 }}
                     >

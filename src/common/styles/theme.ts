@@ -54,6 +54,7 @@ const theme = {
 
         title: '#D6D7E3',
         label: '#B9B9B9',
+        label2: '#70708A',
     },
     fontSize: {
         text_xs: '0.75rem',

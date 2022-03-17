@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+    height: 100%;
+`
+
+export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -16,5 +20,5 @@ export const Container = styled.div`
 
     max-width: ${({ theme }) => theme.breakpoints.laptopL};
 
-    height: 100%;
+    padding: 1.25rem;
 `
