@@ -14,10 +14,20 @@ import {
     DropdownContent,
 } from './styles'
 
+const cancelledClients = clients.filter(
+    (client) => client.status === 'Cancelado'
+)
+const waitingClients = clients.filter((client) => client.status === 'Pendente')
+const registeredClients = clients.filter(
+    (client) => client.status === 'Cadastrado'
+)
+const activeClients = clients.filter((client) => client.status === 'Efetivado')
+
 export const ClientesArea = () => {
     const [date, setDate] = useState(false)
     const [status, setStatus] = useState(false)
     const [statusFilter, setStatusFilter] = useState('Todos')
+    const [filter, setFilter] = useState(clients)
 
     const handleDateButton = () => {
         setDate(!date)
@@ -27,27 +37,34 @@ export const ClientesArea = () => {
     const handleStatusFilterTodos = () => {
         setStatus(!status)
         setStatusFilter('Status')
+        setFilter(clients)
     }
 
     const handleStatusFilterCancelado = () => {
         setStatus(!status)
         setStatusFilter('Cancelado')
+        setFilter(cancelledClients)
     }
 
     const handleStatusFilterPendente = () => {
         setStatus(!status)
         setStatusFilter('Pendente')
+        setFilter(waitingClients)
     }
 
     const handleStatusFilterCadastrado = () => {
         setStatus(!status)
         setStatusFilter('Cadastrado')
+        setFilter(registeredClients)
     }
 
     const handleStatusFilterEfetivado = () => {
         setStatus(!status)
         setStatusFilter('Efetivado')
+        setFilter(activeClients)
     }
+
+    const handleFilter = () => {}
 
     return (
         <Container>
@@ -139,7 +156,7 @@ export const ClientesArea = () => {
                             <th>Ação</th>
                         </tr>
 
-                        {clients.map((client) => (
+                        {filter.map((client) => (
                             <tr key={client.id}>
                                 <td>
                                     <div>
