@@ -1,8 +1,8 @@
-import { Cards } from '@components/application/dashboard-page/cards'
 import { Footer } from '@components/application/dashboard/footer'
+import { Cards } from '@components/pages/dashboard/cards'
 import { Container } from './styles'
 
-export const ContentArea = () => {
+export const DashboardArea = () => {
     return (
         <Container>
             <Cards />

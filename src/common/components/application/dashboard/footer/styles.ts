@@ -11,9 +11,9 @@ export const Container = styled.div`
     align-items: center;
 
     margin-top: auto;
-`
 
-export const Title = styled.span`
-    color: ${({ theme }) => theme.fontColor.label2};
-    margin-left: 20px;
+    span {
+        color: ${({ theme }) => theme.fontColor.label2};
+        margin-left: 20px;
+    }
 `

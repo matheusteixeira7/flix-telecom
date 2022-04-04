@@ -1,17 +1,17 @@
 import { Aside } from '@components/application/dashboard/aside'
 import { Topnav } from '@components/application/dashboard/topnav'
-import { DashboardArea } from '@components/pages/dashboard/dashboard-area'
+import { ClientesArea } from '@components/pages/clientes/clientes-area'
 import { Container } from '@styles/pages/dashboard/styles'
 import type { NextPage } from 'next'
 
-const Dashboard: NextPage = () => {
+const Clientes: NextPage = () => {
     return (
         <Container>
             <Aside />
             <Topnav />
-            <DashboardArea />
+            <ClientesArea />
         </Container>
     )
 }
 
-export default Dashboard
+export default Clientes

@@ -1,9 +1,9 @@
-import { Container, Title } from './styles'
+import { Container } from './styles'
 
 export const Footer = () => {
     return (
         <Container>
-            <Title>2022 © Flix Telecom</Title>
+            <span>2022 © Flix Telecom</span>
         </Container>
     )
 }
