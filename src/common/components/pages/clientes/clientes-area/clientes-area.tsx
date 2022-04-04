@@ -1,11 +1,54 @@
 import { Footer } from '@components/application/dashboard/footer'
 import { PageTitle } from '@components/application/page-title'
 import { Status } from '@components/application/status'
+import { useState } from 'react'
 import { FiChevronDown } from 'react-icons/fi'
 import clients from 'src/common/utils/data/clients.json'
-import { Avatar, Container, Content } from './styles'
+import {
+    Avatar,
+    Button,
+    ButtonsWrapper,
+    Container,
+    Content,
+    Dropdown,
+    DropdownContent,
+} from './styles'
 
 export const ClientesArea = () => {
+    const [date, setDate] = useState(false)
+    const [status, setStatus] = useState(false)
+    const [statusFilter, setStatusFilter] = useState('Todos')
+
+    const handleDateButton = () => {
+        setDate(!date)
+        console.log(date)
+    }
+
+    const handleStatusFilterTodos = () => {
+        setStatus(!status)
+        setStatusFilter('Status')
+    }
+
+    const handleStatusFilterCancelado = () => {
+        setStatus(!status)
+        setStatusFilter('Cancelado')
+    }
+
+    const handleStatusFilterPendente = () => {
+        setStatus(!status)
+        setStatusFilter('Pendente')
+    }
+
+    const handleStatusFilterCadastrado = () => {
+        setStatus(!status)
+        setStatusFilter('Cadastrado')
+    }
+
+    const handleStatusFilterEfetivado = () => {
+        setStatus(!status)
+        setStatusFilter('Efetivado')
+    }
+
     return (
         <Container>
             <PageTitle title="Clientes Cadastrados" />
@@ -14,16 +57,75 @@ export const ClientesArea = () => {
                 <header>
                     <input placeholder="Procurar" />
 
-                    <div>
-                        <button>
-                            <span>Todas as datas</span>
-                            <FiChevronDown />
-                        </button>
+                    <ButtonsWrapper>
+                        <Dropdown>
+                            <Button onClick={() => handleDateButton()}>
+                                <p>Todas as datas</p>
+                                <FiChevronDown />
+                            </Button>
 
-                        <button>
-                            <span>Status</span> <FiChevronDown />
-                        </button>
-                    </div>
+                            <DropdownContent active={date}>
+                                <span>qualquer coisa</span>
+                                <span>qualquer coisa</span>
+                                <span>qualquer coisa</span>
+                                <span>qualquer coisa</span>
+                                <span>qualquer coisa</span>
+                            </DropdownContent>
+                        </Dropdown>
+
+                        <Dropdown>
+                            <Button
+                                onClick={() => setStatus(!status)}
+                                active={status}
+                            >
+                                <p>{statusFilter}</p> <FiChevronDown />
+                            </Button>
+
+                            <DropdownContent active={status}>
+                                <ul>
+                                    <li
+                                        onClick={() =>
+                                            handleStatusFilterTodos()
+                                        }
+                                    >
+                                        <span>Todos</span>
+                                    </li>
+
+                                    <li
+                                        onClick={() =>
+                                            handleStatusFilterCancelado()
+                                        }
+                                    >
+                                        <span>Cancelado</span>
+                                    </li>
+
+                                    <li
+                                        onClick={() =>
+                                            handleStatusFilterPendente()
+                                        }
+                                    >
+                                        <span>Pendente</span>
+                                    </li>
+
+                                    <li
+                                        onClick={() =>
+                                            handleStatusFilterCadastrado()
+                                        }
+                                    >
+                                        <span>Cadastrado</span>
+                                    </li>
+
+                                    <li
+                                        onClick={() =>
+                                            handleStatusFilterEfetivado()
+                                        }
+                                    >
+                                        <span>Efetivado</span>
+                                    </li>
+                                </ul>
+                            </DropdownContent>
+                        </Dropdown>
+                    </ButtonsWrapper>
                 </header>
 
                 <body>
@@ -34,7 +136,7 @@ export const ClientesArea = () => {
                             <th>Cidade</th>
                             <th>Data</th>
                             <th>Status</th>
-                            <th>Ações</th>
+                            <th>Ação</th>
                         </tr>
 
                         {clients.map((client) => (

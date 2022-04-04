@@ -61,14 +61,5 @@
         "city": "Porto Real",
         "createdAt": "1649003926",
         "status": "Cancelado"
-    },
-    {
-        "id": "8",
-        "name": "Matheus Teixeira",
-        "seller": "Marisa Miranda",
-        "sellerPicture": "https://cdn.pixabay.com/photo/2018/07/25/08/58/business-3560916_960_720.jpg",
-        "city": "Quatis",
-        "createdAt": "1649003926",
-        "status": "Efetivado"
     }
 ]

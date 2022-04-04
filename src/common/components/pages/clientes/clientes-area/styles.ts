@@ -1,6 +1,10 @@
 import Image from 'next/image'
 import styled from 'styled-components'
 
+interface IActiveProps {
+    active?: boolean
+}
+
 export const Container = styled.div`
     background-color: ${({ theme }) => theme.colors.background_900};
     height: 100%;
@@ -27,7 +31,7 @@ export const Content = styled.div`
         justify-content: space-between;
 
         input {
-            padding: 0.5rem 1rem;
+            padding: 0.7rem 1rem;
             border-radius: 5px;
             border: none;
 
@@ -40,35 +44,6 @@ export const Content = styled.div`
                 font-size: ${({ theme }) => theme.fontSize.text_sm};
                 color: ${({ theme }) => theme.fontColor.title};
                 font-weight: ${({ theme }) => theme.fontWeight.medium};
-            }
-        }
-
-        div {
-            button {
-                padding: 0.5rem 1rem;
-                border-radius: 5px;
-                border: none;
-
-                width: 13rem;
-
-                background-color: ${({ theme }) => theme.colors.background_800};
-                font-size: ${({ theme }) => theme.fontSize.text_sm};
-                color: ${({ theme }) => theme.fontColor.title};
-                font-weight: ${({ theme }) => theme.fontWeight.medium};
-
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                cursor: pointer;
-
-                span {
-                    margin-right: 1rem;
-                }
-
-                &:first-child {
-                    margin-right: 1rem;
-                }
             }
         }
     }
@@ -90,6 +65,10 @@ export const Content = styled.div`
         padding: 1.25rem;
 
         background-color: ${({ theme }) => theme.colors.background_700};
+
+        &:last-child {
+            text-align: center;
+        }
     }
 
     tr {
@@ -112,15 +91,89 @@ export const Content = styled.div`
         background-color: ${({ theme }) => theme.colors.background_700};
         border-bottom: 1px solid ${({ theme }) => theme.colors.background_900};
         border-top: 1px solid ${({ theme }) => theme.colors.background_900};
+
+        div {
+            display: flex;
+            align-items: center;
+        }
+
+        &:last-child {
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+
+            text-align: center;
+        }
     }
 
     span {
         margin-left: 1rem;
     }
+`
 
-    div {
-        display: flex;
-        align-items: center;
+export const ButtonsWrapper = styled.div`
+    display: flex;
+`
+
+export const Dropdown = styled.div`
+    position: relative;
+    display: block;
+`
+
+export const DropdownContent = styled.div<IActiveProps>`
+    background: ${({ theme }) => theme.colors.background_700};
+    border: 1px solid ${({ theme }) => theme.colors.background_900};
+    color: ${({ theme }) => theme.fontColor.title};
+    display: ${({ active }) => (active ? 'flex' : 'none')};
+    flex-direction: column;
+    font-size: ${({ theme }) => theme.fontSize.text_sm};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    position: absolute;
+    width: 13rem;
+    z-index: 1;
+
+    ul {
+        list-style: none;
+
+        li {
+            span {
+                cursor: pointer;
+                display: block;
+                padding: 1rem;
+            }
+
+            &:hover {
+                background-color: ${({ theme }) => theme.colors.background_800};
+                transition: all 0.2s ease-in-out;
+            }
+        }
+    }
+`
+
+export const Button = styled.div<IActiveProps>`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: ${({ theme }) => theme.colors.background_800};
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+
+    color: ${({ theme }) => theme.fontColor.title};
+    font-size: ${({ theme }) => theme.fontSize.text_sm};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
+
+    padding: 0.7rem 1rem;
+    position: relative;
+    width: 13rem;
+
+    &:first-child {
+        margin-right: 1rem;
+    }
+
+    span {
+        margin-right: 1rem;
     }
 `
 
