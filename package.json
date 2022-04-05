@@ -1,34 +1,36 @@
 {
-  "name": "flix-telecom",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@types/styled-components": "^5.1.24",
-    "axios": "^0.26.1",
-    "miragejs": "^0.1.43",
-    "next": "12.1.0",
-    "polished": "^4.1.4",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-icons": "^4.3.1",
-    "recharts": "^2.1.9",
-    "styled-components": "^5.3.3"
-  },
-  "devDependencies": {
-    "@types/node": "17.0.21",
-    "@types/react": "17.0.40",
-    "babel-plugin-styled-components": "^2.0.6",
-    "eslint": "8.11.0",
-    "eslint-config-next": "12.1.0",
-    "eslint-config-prettier": "^8.5.0",
-    "prettier": "^2.5.1",
-    "tsconfig-paths": "^3.13.0",
-    "typescript": "4.6.2"
-  }
+    "name": "flix-telecom",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@types/styled-components": "^5.1.24",
+        "axios": "^0.26.1",
+        "date-fns": "^2.28.0",
+        "next": "12.1.0",
+        "polished": "^4.1.4",
+        "react": "17.0.2",
+        "react-datepicker": "^4.7.0",
+        "react-dom": "17.0.2",
+        "react-icons": "^4.3.1",
+        "recharts": "^2.1.9",
+        "styled-components": "^5.3.3"
+    },
+    "devDependencies": {
+        "@types/node": "17.0.21",
+        "@types/react": "17.0.40",
+        "babel-plugin-styled-components": "^2.0.6",
+        "eslint": "8.11.0",
+        "eslint-config-next": "12.1.0",
+        "eslint-config-prettier": "^8.5.0",
+        "miragejs": "^0.1.43",
+        "prettier": "^2.5.1",
+        "tsconfig-paths": "^3.13.0",
+        "typescript": "4.6.2"
+    }
 }
