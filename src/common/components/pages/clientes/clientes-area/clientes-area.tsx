@@ -40,9 +40,6 @@ export const ClientesArea = () => {
     }
 
     const handleFilter = () => {
-        console.log(date)
-        console.log(statusFilter)
-
         if (date !== 'Todas as datas' && statusFilter !== 'Status') {
             setFilter(
                 data.filter((client) => {
