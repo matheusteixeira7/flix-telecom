@@ -49,20 +49,28 @@ export const ClientesArea = () => {
                     )
                 })
             )
+            setDateDropdown(false)
+            setStatus(false)
         } else if (date !== 'Todas as datas' && statusFilter === 'Status') {
-            return setFilter(
+            setFilter(
                 data.filter((client) => {
                     return client.createdAt === date
                 })
             )
+            setDateDropdown(false)
+            setStatus(false)
         } else if (date === 'Todas as datas' && statusFilter !== 'Status') {
-            return setFilter(
+            setFilter(
                 data.filter((client) => {
                     return client.status === statusFilter
                 })
             )
+            setDateDropdown(false)
+            setStatus(false)
         } else {
             setFilter(data)
+            setDateDropdown(false)
+            setStatus(false)
         }
     }
 
