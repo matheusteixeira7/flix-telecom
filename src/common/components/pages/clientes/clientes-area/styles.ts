@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { darken, lighten } from 'polished'
 import styled from 'styled-components'
 
 interface IActiveProps {
@@ -121,16 +122,18 @@ export const Dropdown = styled.div`
 `
 
 export const DropdownContent = styled.div<IActiveProps>`
-    background: ${({ theme }) => theme.colors.background_700};
     border: 1px solid ${({ theme }) => theme.colors.background_900};
-    color: ${({ theme }) => theme.fontColor.title};
+    cursor: pointer;
     display: ${({ active }) => (active ? 'flex' : 'none')};
     flex-direction: column;
-    font-size: ${({ theme }) => theme.fontSize.text_sm};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
     position: absolute;
     width: 13rem;
     z-index: 1;
+
+    background-color: ${({ theme }) => theme.colors.background_800};
+    font-size: ${({ theme }) => theme.fontSize.text_sm};
+    color: ${({ theme }) => theme.fontColor.title};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
 
     ul {
         list-style: none;
@@ -147,6 +150,14 @@ export const DropdownContent = styled.div<IActiveProps>`
                 transition: all 0.2s ease-in-out;
             }
         }
+    }
+
+    span {
+        padding: 0.5rem 0;
+    }
+
+    input {
+        width: 13rem;
     }
 `
 
@@ -181,4 +192,36 @@ export const Avatar = styled(Image)`
     border-radius: 50%;
 
     overflow: hidden;
+`
+
+export const FilterButton = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: ${({ theme }) => theme.colors.success_background};
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+
+    color: ${({ theme }) => theme.colors.success};
+    font-size: ${({ theme }) => theme.fontSize.text_sm};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
+
+    padding: 0.7rem 1rem;
+    position: relative;
+
+    min-width: 5rem;
+
+    &:hover {
+        background-color: ${(props) =>
+            darken(0.2, props.theme.colors.success_background)};
+        transition: all 0.2s ease-in-out;
+    }
+
+    &:active {
+        background-color: ${(props) =>
+            lighten(0.5, props.theme.colors.success_background)};
+        transition: all 0.2s ease-in-out;
+    }
 `

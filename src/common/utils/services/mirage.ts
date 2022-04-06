@@ -24,7 +24,7 @@ export function makeServer({ environment = 'test' } = {}) {
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2018/11/08/23/52/man-3803551_960_720.jpg',
                         city: 'Resende',
-                        createdAt: new Date(),
+                        createdAt: '05/04/2022',
                         status: 'Cadastrado',
                     },
                     {
@@ -34,7 +34,7 @@ export function makeServer({ environment = 'test' } = {}) {
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2019/03/17/12/57/phone-4060860_960_720.jpg',
                         city: 'Itatiaia',
-                        createdAt: new Date(),
+                        createdAt: '05/04/2022',
                         status: 'Pendente',
                     },
                     {
@@ -44,7 +44,7 @@ export function makeServer({ environment = 'test' } = {}) {
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2016/10/06/03/30/man-1718099_960_720.jpg',
                         city: 'Porto Real',
-                        createdAt: new Date(),
+                        createdAt: '05/04/2022',
                         status: 'Cancelado',
                     },
                     {
@@ -54,7 +54,7 @@ export function makeServer({ environment = 'test' } = {}) {
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2018/07/25/08/58/business-3560916_960_720.jpg',
                         city: 'Quatis',
-                        createdAt: new Date(),
+                        createdAt: '05/04/2022',
                         status: 'Efetivado',
                     },
                     {
@@ -64,7 +64,7 @@ export function makeServer({ environment = 'test' } = {}) {
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2018/11/08/23/52/man-3803551_960_720.jpg',
                         city: 'Resende',
-                        createdAt: new Date(),
+                        createdAt: '2022-04-03T23:00:42.502Z',
                         status: 'Cadastrado',
                     },
                     {
@@ -74,7 +74,7 @@ export function makeServer({ environment = 'test' } = {}) {
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2019/03/17/12/57/phone-4060860_960_720.jpg',
                         city: 'Itatiaia',
-                        createdAt: new Date(),
+                        createdAt: '2022-04-02T23:00:42.502Z',
                         status: 'Pendente',
                     },
                     {
@@ -84,7 +84,7 @@ export function makeServer({ environment = 'test' } = {}) {
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2016/10/06/03/30/man-1718099_960_720.jpg',
                         city: 'Porto Real',
-                        createdAt: new Date(),
+                        createdAt: '2022-04-02T23:00:42.502Z',
                         status: 'Cancelado',
                     },
                 ]

@@ -1,7 +1,7 @@
 import { Footer } from '@components/application/dashboard/footer'
 import { PageTitle } from '@components/application/page-title'
 import { Status } from '@components/application/status'
-import pt from 'date-fns/locale/pt'
+import ptBR from 'date-fns/locale/pt-BR'
 import { useEffect, useState } from 'react'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -15,8 +15,9 @@ import {
     Content,
     Dropdown,
     DropdownContent,
+    FilterButton,
 } from './styles'
-registerLocale('pt', pt)
+registerLocale('ptBR', ptBR)
 
 export const ClientesArea = () => {
     useEffect(() => {
@@ -27,58 +28,45 @@ export const ClientesArea = () => {
     }, [])
 
     const [data, setData] = useState([])
+    const [date, setDate] = useState('Todas as datas')
     const [filter, setFilter] = useState([])
     const [startDate, setStartDate] = useState(new Date())
     const [dateDropdown, setDateDropdown] = useState(false)
     const [status, setStatus] = useState(false)
     const [statusFilter, setStatusFilter] = useState('Status')
 
-    const handleDateButton = () => {
+    const handleDatePicker = () => {
         setDateDropdown(!dateDropdown)
     }
 
-    const handleStatusFilterTodos = () => {
-        setStatus(!status)
-        setStatusFilter('Todos')
-        setFilter(data)
-    }
+    const handleFilter = () => {
+        console.log(date)
+        console.log(statusFilter)
 
-    const handleStatusFilterCancelado = () => {
-        setStatus(!status)
-        setStatusFilter('Cancelado')
-
-        const cancelledClients = data.filter(
-            (client) => client.status === 'Cancelado'
-        )
-
-        setFilter(cancelledClients)
-    }
-
-    const handleStatusFilterPendente = () => {
-        setStatus(!status)
-        setStatusFilter('Pendente')
-        const waitingClients = data.filter(
-            (client) => client.status === 'Pendente'
-        )
-        setFilter(waitingClients)
-    }
-
-    const handleStatusFilterCadastrado = () => {
-        setStatus(!status)
-        setStatusFilter('Cadastrado')
-        const registeredClients = data.filter(
-            (client) => client.status === 'Cadastrado'
-        )
-        setFilter(registeredClients)
-    }
-
-    const handleStatusFilterEfetivado = () => {
-        setStatus(!status)
-        setStatusFilter('Efetivado')
-        const activeClients = data.filter(
-            (client) => client.status === 'Efetivado'
-        )
-        setFilter(activeClients)
+        if (date !== 'Todas as datas' && statusFilter !== 'Status') {
+            setFilter(
+                data.filter((client) => {
+                    return (
+                        client.status === statusFilter &&
+                        client.createdAt === date
+                    )
+                })
+            )
+        } else if (date !== 'Todas as datas' && statusFilter === 'Status') {
+            return setFilter(
+                data.filter((client) => {
+                    return client.createdAt === date
+                })
+            )
+        } else if (date === 'Todas as datas' && statusFilter !== 'Status') {
+            return setFilter(
+                data.filter((client) => {
+                    return client.status === statusFilter
+                })
+            )
+        } else {
+            setFilter(data)
+        }
     }
 
     return (
@@ -91,16 +79,32 @@ export const ClientesArea = () => {
 
                     <ButtonsWrapper>
                         <Dropdown>
-                            <Button onClick={() => handleDateButton()}>
-                                <p>Todas as datas</p>
+                            <Button onClick={() => handleDatePicker()}>
+                                {date}
                                 <FiChevronDown />
                             </Button>
 
                             <DropdownContent active={dateDropdown}>
+                                <span
+                                    onClick={() => {
+                                        setDate('Todas as datas')
+                                        handleDatePicker()
+                                    }}
+                                >
+                                    Todas as datas
+                                </span>
                                 <DatePicker
-                                    selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
-                                    locale="pt"
+                                    selected={null}
+                                    onChange={(date) => {
+                                        setStartDate(date)
+                                        setDate(
+                                            date.toLocaleDateString('pt-BR')
+                                        )
+                                        handleDatePicker()
+                                    }}
+                                    locale="ptBR"
+                                    dateFormat="dd/MM/yyyy"
+                                    placeholderText="Selecione uma data"
                                 />
                             </DropdownContent>
                         </Dropdown>
@@ -116,47 +120,56 @@ export const ClientesArea = () => {
                             <DropdownContent active={status}>
                                 <ul>
                                     <li
-                                        onClick={() =>
-                                            handleStatusFilterTodos()
-                                        }
+                                        onClick={() => {
+                                            setStatusFilter('Status')
+                                            setStatus(!status)
+                                        }}
                                     >
                                         <span>Todos</span>
                                     </li>
 
                                     <li
-                                        onClick={() =>
-                                            handleStatusFilterCancelado()
-                                        }
+                                        onClick={() => {
+                                            setStatusFilter('Cancelado')
+                                            setStatus(!status)
+                                        }}
                                     >
                                         <span>Cancelado</span>
                                     </li>
 
                                     <li
-                                        onClick={() =>
-                                            handleStatusFilterPendente()
-                                        }
+                                        onClick={() => {
+                                            setStatusFilter('Pendente')
+                                            setStatus(!status)
+                                        }}
                                     >
                                         <span>Pendente</span>
                                     </li>
 
                                     <li
-                                        onClick={() =>
-                                            handleStatusFilterCadastrado()
-                                        }
+                                        onClick={() => {
+                                            setStatusFilter('Cadastrado')
+                                            setStatus(!status)
+                                        }}
                                     >
                                         <span>Cadastrado</span>
                                     </li>
 
                                     <li
-                                        onClick={() =>
-                                            handleStatusFilterEfetivado()
-                                        }
+                                        onClick={() => {
+                                            setStatusFilter('Efetivado')
+                                            setStatus(!status)
+                                        }}
                                     >
                                         <span>Efetivado</span>
                                     </li>
                                 </ul>
                             </DropdownContent>
                         </Dropdown>
+
+                        <FilterButton onClick={() => handleFilter()}>
+                            Filtrar
+                        </FilterButton>
                     </ButtonsWrapper>
                 </header>
 
@@ -187,11 +200,7 @@ export const ClientesArea = () => {
                                     </td>
                                     <td>{client.name}</td>
                                     <td>{client.city}</td>
-                                    <td>
-                                        {new Date(
-                                            client.createdAt
-                                        ).toLocaleDateString('pt-BR')}
-                                    </td>
+                                    <td>{client.createdAt}</td>
                                     <td>
                                         <Status orderStatus={client.status} />
                                     </td>
