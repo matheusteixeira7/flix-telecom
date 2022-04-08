@@ -1,4 +1,5 @@
 import { createServer } from 'miragejs'
+import { v4 as uuid } from 'uuid'
 
 export function makeServer({ environment = 'test' } = {}) {
     let server = createServer({
@@ -18,7 +19,7 @@ export function makeServer({ environment = 'test' } = {}) {
             this.get('/api/clients', () => {
                 return [
                     {
-                        id: '1',
+                        id: uuid(),
                         name: 'Matheus Teixeira',
                         seller: 'Roberto Fonseca',
                         sellerPicture:
@@ -28,8 +29,8 @@ export function makeServer({ environment = 'test' } = {}) {
                         status: 'Cadastrado',
                     },
                     {
-                        id: '2',
-                        name: 'Matheus Teixeira',
+                        id: uuid(),
+                        name: 'Samara Miranda',
                         seller: 'Marcos da Rocha',
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2019/03/17/12/57/phone-4060860_960_720.jpg',
@@ -38,8 +39,8 @@ export function makeServer({ environment = 'test' } = {}) {
                         status: 'Pendente',
                     },
                     {
-                        id: '3',
-                        name: 'Matheus Teixeira',
+                        id: uuid(),
+                        name: 'Samara Miranda',
                         seller: 'Ricardo Assunção',
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2016/10/06/03/30/man-1718099_960_720.jpg',
@@ -48,8 +49,38 @@ export function makeServer({ environment = 'test' } = {}) {
                         status: 'Cancelado',
                     },
                     {
-                        id: '4',
-                        name: 'Matheus Teixeira',
+                        id: uuid(),
+                        name: 'Samara Miranda',
+                        seller: 'Ricardo Assunção',
+                        sellerPicture:
+                            'https://cdn.pixabay.com/photo/2016/10/06/03/30/man-1718099_960_720.jpg',
+                        city: 'Porto Real',
+                        createdAt: '05/04/2022',
+                        status: 'Cancelado',
+                    },
+                    {
+                        id: uuid(),
+                        name: 'Roberto Miranda',
+                        seller: 'Ricardo Assunção',
+                        sellerPicture:
+                            'https://cdn.pixabay.com/photo/2016/10/06/03/30/man-1718099_960_720.jpg',
+                        city: 'Porto Real',
+                        createdAt: '05/04/2022',
+                        status: 'Cancelado',
+                    },
+                    {
+                        id: uuid(),
+                        name: 'Samara Miranda',
+                        seller: 'Ricardo Assunção',
+                        sellerPicture:
+                            'https://cdn.pixabay.com/photo/2016/10/06/03/30/man-1718099_960_720.jpg',
+                        city: 'Porto Real',
+                        createdAt: '04/04/2022',
+                        status: 'Cadastrado',
+                    },
+                    {
+                        id: uuid(),
+                        name: 'Ralfen Teixeira',
                         seller: 'Marisa Miranda',
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2018/07/25/08/58/business-3560916_960_720.jpg',
@@ -58,8 +89,8 @@ export function makeServer({ environment = 'test' } = {}) {
                         status: 'Efetivado',
                     },
                     {
-                        id: '5',
-                        name: 'Matheus Teixeira',
+                        id: uuid(),
+                        name: 'Ismael Ribeiro',
                         seller: 'Roberto Fonseca',
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2018/11/08/23/52/man-3803551_960_720.jpg',
@@ -68,8 +99,8 @@ export function makeServer({ environment = 'test' } = {}) {
                         status: 'Cadastrado',
                     },
                     {
-                        id: '6',
-                        name: 'Matheus Teixeira',
+                        id: uuid(),
+                        name: 'Marcio Pensabem',
                         seller: 'Marcos da Rocha',
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2019/03/17/12/57/phone-4060860_960_720.jpg',
@@ -78,8 +109,8 @@ export function makeServer({ environment = 'test' } = {}) {
                         status: 'Pendente',
                     },
                     {
-                        id: '7',
-                        name: 'Matheus Teixeira',
+                        id: uuid(),
+                        name: 'Rodrigo Otávio',
                         seller: 'Ricardo Assunção',
                         sellerPicture:
                             'https://cdn.pixabay.com/photo/2016/10/06/03/30/man-1718099_960_720.jpg',

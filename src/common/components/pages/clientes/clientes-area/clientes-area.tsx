@@ -30,47 +30,128 @@ export const ClientesArea = () => {
     const [data, setData] = useState([])
     const [date, setDate] = useState('Todas as datas')
     const [filter, setFilter] = useState([])
-    const [startDate, setStartDate] = useState(new Date())
+    const [searchClient, setSearchClient] = useState('')
     const [dateDropdown, setDateDropdown] = useState(false)
     const [status, setStatus] = useState(false)
     const [statusFilter, setStatusFilter] = useState('Status')
+
+    const handleChange = (event) => {
+        setSearchClient(event.target.value)
+    }
 
     const handleDatePicker = () => {
         setDateDropdown(!dateDropdown)
     }
 
+    const setDropdownToFalse = () => {
+        setDateDropdown(false)
+        setStatus(false)
+    }
+
     const handleFilter = () => {
-        if (date !== 'Todas as datas' && statusFilter !== 'Status') {
-            setFilter(
-                data.filter((client) => {
-                    return (
-                        client.status === statusFilter &&
-                        client.createdAt === date
-                    )
-                })
-            )
-            setDateDropdown(false)
-            setStatus(false)
-        } else if (date !== 'Todas as datas' && statusFilter === 'Status') {
-            setFilter(
-                data.filter((client) => {
-                    return client.createdAt === date
-                })
-            )
-            setDateDropdown(false)
-            setStatus(false)
-        } else if (date === 'Todas as datas' && statusFilter !== 'Status') {
-            setFilter(
-                data.filter((client) => {
-                    return client.status === statusFilter
-                })
-            )
-            setDateDropdown(false)
-            setStatus(false)
-        } else {
-            setFilter(data)
-            setDateDropdown(false)
-            setStatus(false)
+        switch (true) {
+            case date !== 'Todas as datas' &&
+                statusFilter !== 'Status' &&
+                searchClient !== '':
+                setFilter(
+                    data.filter((client) => {
+                        return (
+                            client.status === statusFilter &&
+                            client.createdAt === date &&
+                            client.name
+                                .toLowerCase()
+                                .includes(searchClient.toLowerCase())
+                        )
+                    })
+                )
+                setDropdownToFalse()
+                break
+
+            case date !== 'Todas as datas' &&
+                statusFilter === 'Status' &&
+                searchClient !== '':
+                setFilter(
+                    data.filter((client) => {
+                        return (
+                            client.name
+                                .toLowerCase()
+                                .includes(searchClient.toLowerCase()) &&
+                            client.createdAt === date
+                        )
+                    })
+                )
+                setDropdownToFalse()
+                break
+
+            case date === 'Todas as datas' &&
+                statusFilter === 'Status' &&
+                searchClient !== '':
+                setFilter(
+                    data.filter((client) => {
+                        return client.name
+                            .toLowerCase()
+                            .includes(searchClient.toLowerCase())
+                    })
+                )
+                setDropdownToFalse()
+                break
+
+            case date === 'Todas as datas' &&
+                statusFilter !== 'Status' &&
+                searchClient !== '':
+                setFilter(
+                    data.filter((client) => {
+                        return (
+                            client.name
+                                .toLowerCase()
+                                .includes(searchClient.toLowerCase()) &&
+                            client.status === statusFilter
+                        )
+                    })
+                )
+                setDropdownToFalse()
+                break
+
+            case date === 'Todas as datas' &&
+                statusFilter !== 'Status' &&
+                searchClient === '':
+                setFilter(
+                    data.filter((client) => {
+                        return client.status === statusFilter
+                    })
+                )
+                setDropdownToFalse()
+                break
+
+            case date !== 'Todas as datas' &&
+                statusFilter === 'Status' &&
+                searchClient === '':
+                setFilter(
+                    data.filter((client) => {
+                        return client.createdAt === date
+                    })
+                )
+                setDropdownToFalse()
+                break
+
+            case date !== 'Todas as datas' &&
+                statusFilter !== 'Status' &&
+                searchClient === '':
+                setFilter(
+                    data.filter((client) => {
+                        return (
+                            client.createdAt === date &&
+                            client.status === statusFilter
+                        )
+                    })
+                )
+                setDropdownToFalse()
+                break
+
+            default:
+                setFilter(data)
+                setDropdownToFalse()
+                break
         }
     }
 
@@ -80,7 +161,12 @@ export const ClientesArea = () => {
 
             <Content>
                 <header>
-                    <input placeholder="Procurar" />
+                    <input
+                        type="text"
+                        placeholder="Procurar cliente"
+                        value={searchClient}
+                        onChange={handleChange}
+                    />
 
                     <ButtonsWrapper>
                         <Dropdown>
@@ -101,7 +187,6 @@ export const ClientesArea = () => {
                                 <DatePicker
                                     selected={null}
                                     onChange={(date) => {
-                                        setStartDate(date)
                                         setDate(
                                             date.toLocaleDateString('pt-BR')
                                         )
