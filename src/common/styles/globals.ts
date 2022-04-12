@@ -101,4 +101,8 @@ export const GlobalStyle = styled.createGlobalStyle`
     * {
         box-sizing: border-box;
     }
+
+    input:disabled {
+        cursor: not-allowed;
+    }
 `
