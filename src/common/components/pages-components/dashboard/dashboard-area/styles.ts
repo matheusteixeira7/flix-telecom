@@ -8,4 +8,26 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    overflow: auto;
+`
+
+export const Content = styled.div`
+    overflow: auto;
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 `

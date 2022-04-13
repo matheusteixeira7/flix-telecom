@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
     grid-area: footer;
 
-    padding: 2.5rem 0;
+    padding: 1rem 0;
     width: 100%;
     border-top: 2px solid ${({ theme }) => theme.colors.background_800};
 

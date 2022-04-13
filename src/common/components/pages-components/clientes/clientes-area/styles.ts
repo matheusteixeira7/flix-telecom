@@ -22,7 +22,7 @@ export const Content = styled.div`
     border-radius: 10px;
     margin: 1.25rem;
 
-    max-height: 44rem;
+    height: 100%;
     overflow: auto;
 
     ::-webkit-scrollbar {
