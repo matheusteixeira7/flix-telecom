@@ -1,7 +1,5 @@
 import { Footer } from '@components/application/dashboard/footer'
 import { PageTitle } from '@components/application/page-title'
-import React, { useState } from 'react'
-import { FiChevronDown } from 'react-icons/fi'
 import {
     ChangeStatus,
     Container,
@@ -9,28 +7,56 @@ import {
     DropdownContent,
     EditButton,
     InputWrapper,
-} from './styles'
+} from '@components/pages-components/single-cliente/styles'
+import React, { useState } from 'react'
+import { FiChevronDown } from 'react-icons/fi'
 
-export const ClienteArea = () => {
+interface ISingleClientProps {
+    client: {
+        id: string
+        name: string
+        cpf: string
+        birthday: string
+        phone1: string
+        phone2: string
+        whatsapp: string
+        email: string
+        cep: string
+        street: string
+        number: string
+        complement: string
+        neighborhood: string
+        city: string
+        UF: string
+        seller: {
+            name: string
+            picture: string
+        }
+        createdAt: string
+        status: string
+    }
+}
+
+const SingleClient = ({ client }: ISingleClientProps) => {
     const [isOpen, setIsOpen] = useState(false)
     const [status, setStatus] = useState('Pendente')
 
-    const [name, setName] = useState('Matheus Teixeira')
-    const [cpf, setCpf] = useState('146.007.527-75')
-    const [birthday, setBirthday] = useState('18/02/1993')
-    const [phone1, setPhone1] = useState('(24) 9 9999-9999')
-    const [phone2, setPhone2] = useState('')
-    const [whatsapp, setWhatsapp] = useState('(24) 9 9999-9999')
-    const [email, setEmail] = useState('matheus.teixeira7@gmail.com')
-    const [cep, setCep] = useState('27521031')
-    const [street, setStreet] = useState('Rua Santos Dumont')
-    const [number, setNumber] = useState('299')
+    const [name, setName] = useState(client.name)
+    const [cpf, setCpf] = useState(client.cpf)
+    const [birthday, setBirthday] = useState(client.birthday)
+    const [phone1, setPhone1] = useState(client.phone1)
+    const [phone2, setPhone2] = useState(client.phone2)
+    const [whatsapp, setWhatsapp] = useState(client.whatsapp)
+    const [email, setEmail] = useState(client.email)
+    const [cep, setCep] = useState(client.cep)
+    const [street, setStreet] = useState(client.street)
+    const [number, setNumber] = useState(client.number)
     const [complement, setComplement] = useState(
-        'Casa com portão de ferro em frente ao Edifício Alcobaça'
+        client.complement ? client.complement : ''
     )
-    const [neighborhood, setNeighborhood] = useState('Jardim Paulista')
-    const [city, setCity] = useState('São Paulo')
-    const [state, setState] = useState('SP')
+    const [neighborhood, setNeighborhood] = useState(client.neighborhood)
+    const [city, setCity] = useState(client.city)
+    const [state, setState] = useState(client.UF)
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value)
@@ -353,3 +379,5 @@ export const ClienteArea = () => {
         </Container>
     )
 }
+
+export default SingleClient

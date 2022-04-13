@@ -100,7 +100,7 @@ export const InputWrapper = styled.div`
 
         &.cpf,
         &.birthday {
-            width: 9rem;
+            width: 12rem;
         }
 
         &.phone1,

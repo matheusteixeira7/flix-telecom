@@ -2,6 +2,7 @@ import { Footer } from '@components/application/dashboard/footer'
 import { PageTitle } from '@components/application/page-title'
 import { Status } from '@components/application/status'
 import ptBR from 'date-fns/locale/pt-BR'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -21,7 +22,7 @@ registerLocale('ptBR', ptBR)
 
 export const ClientesArea = () => {
     useEffect(() => {
-        api.get('/clients').then((response) => {
+        api.get('/clients/').then((response) => {
             setData(response.data)
             setFilter(response.data)
         })
@@ -277,25 +278,31 @@ export const ClientesArea = () => {
                         </tbody>
                         {filter.map((client) => (
                             <tbody key={client.id}>
-                                <tr>
-                                    <td>
-                                        <div>
-                                            <Avatar
-                                                src={client.sellerPicture}
-                                                width="35"
-                                                height="35"
+                                <Link href={`/clientes/${client.id}`} passHref>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <Avatar
+                                                    src={client.seller.picture}
+                                                    width="35"
+                                                    height="35"
+                                                />
+                                                <span>
+                                                    {client.seller.name}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>{client.name}</td>
+                                        <td>{client.city}</td>
+                                        <td>{client.createdAt}</td>
+                                        <td>
+                                            <Status
+                                                orderStatus={client.status}
                                             />
-                                            <span>{client.seller}</span>
-                                        </div>
-                                    </td>
-                                    <td>{client.name}</td>
-                                    <td>{client.city}</td>
-                                    <td>{client.createdAt}</td>
-                                    <td>
-                                        <Status orderStatus={client.status} />
-                                    </td>
-                                    <td>...</td>
-                                </tr>
+                                        </td>
+                                        <td>...</td>
+                                    </tr>
+                                </Link>
                             </tbody>
                         ))}
                     </table>

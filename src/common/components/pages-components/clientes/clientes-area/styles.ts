@@ -97,6 +97,7 @@ export const Content = styled.div`
         &:hover td {
             transition: all 0.2s ease-in-out;
             background-color: ${({ theme }) => theme.colors.background_800};
+            cursor: pointer;
         }
     }
 
